@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-  fmt.Print("Hello!")
+	hello(os.Stdout)
+}
+
+func hello(f *os.File) (int, error) {
+	return fmt.Fprintf(f, "Hello!")
 }
